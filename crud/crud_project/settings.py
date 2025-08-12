@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-)oi@l9toz%26q^%(vav+-4#$7=tqy#desobm&q)bbyt*_#-@s=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['crud-project-tdia.onrender.com',  # Your Render domain
+    'localhost',                       # For local development
+    '127.0.0.1',                       # For local development
+]
 
 
 # Application definition
