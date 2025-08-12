@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Student List</h1>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Course</th>
+    <th>Actions</th>
+    </tr>
+
+    </thead>
+    <tbody>
+{% for student in students %}
+    <tr>
+    
+    <td>{{ student.name }}</td>
+    <td>{{ student.id }}</td>
+    <td>{{ student.age }}</td>
+    <td>{{ student.course }}</td>
+    <td>
+        <a href="{% url 'update_student' student.id %}" class="btn btn-primary">UPDATE</a>
+        <a href="{% url 'delete_student' student.id %}" class="btn btn-danger btn-sm">Delete</a>
+
+    </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{#    {% for x in students %}#}
+{#    {{ x.fullname }},{{ x.course }}#}
+{#    {% endfor %}#}
+{% endblock %}
+{% if user.is_authenticated %}
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+  </form>
+{% endif %}
